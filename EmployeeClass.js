@@ -6,8 +6,19 @@ class Employee {
       
     }   
 
+    EmployeeAttendence(){
+      if(this.attendance){
+        return  "Employee is present.";
+      }
+      else{
+          return "Employee is Absent";
+      }
+    }
+
+
+
     displayInfo() {
-      console.log(`Employee Name: ${this.name}, ID: ${this.id} `);
+      console.log(`Employee Name: ${this.name}, ID: ${this.id} , Attendance: ${this.EmployeeAttendence()}`);
     }
 
   }
