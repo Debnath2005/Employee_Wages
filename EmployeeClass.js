@@ -40,11 +40,54 @@ class Employee {
       this.Wages=0
       return "Absent 0 $"
     }
+  }
+
+
+  DailyWagesUsingSwitchCase(){
+    const checkAttendence=this.attendance;
+    let wages=0
+    switch (checkAttendence) {
+      case 0:
+        return  this.wageAbsent()
+        break;
+      case 1:
+        return this.wageHalfTime()
+        break;
+      case 2:
+        return this.wageFullTime()
+      default:
+        break;
+    }
+  }
+
+  wageFullTime(){
+    let fulltime=8
+    let ratePerHour=20
+    let wage= fulltime*ratePerHour
+    this.Wages=wage;
+    console.log(wage);
     
+    return wage;
+  }
+  
+  wageHalfTime(){
+    let halftime=4
+    let ratePerHour=20
+    let wage= halftime*ratePerHour
+    this.Wages=wage;
+    return wage;
+  }
+  
+  wageAbsent(){
+    let time=0
+    let ratePerHour=20
+    let wage= time*ratePerHour
+    this.Wages=wage;
+    return wage;
   }
 
     displayInfo() {
-      console.log(`Employee Name: ${this.name}, ID: ${this.id} , Attendance: ${this.EmployeeAttendence()} , Wages: ${this.DailyWages()}`);
+      console.log(`Employee Name: ${this.name}, ID: ${this.id} , Attendance: ${this.EmployeeAttendence()} , Wages: ${this.DailyWages()} , wageUsingSwitchCase: ${this.DailyWagesUsingSwitchCase()}`);
     }
 }
   
