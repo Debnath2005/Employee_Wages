@@ -65,8 +65,6 @@ class Employee {
     let ratePerHour=20
     let wage= fulltime*ratePerHour
     this.Wages=wage;
-    console.log(wage);
-    
     return wage;
   }
   
@@ -86,8 +84,31 @@ class Employee {
     return wage;
   }
 
+  monthlyWageCalculate(){
+    let days=20;
+    let monthlyWage=0
+    for(let i=0;i<days;i++){
+      let dailyAttendence=getRandom()
+      if(dailyAttendence==1){
+         monthlyWage+=this.wageHalfTime()
+      }
+      else if(dailyAttendence==2){
+        monthlyWage+=this.wageFullTime()
+      }
+      else{
+        monthlyWage+=this.wageAbsent()
+      }
+    }
+    console.log(` monthlyWage: ${monthlyWage}`);
+    
+    //return monthlyWage;
+  }
+
+
+  
+
     displayInfo() {
-      console.log(`Employee Name: ${this.name}, ID: ${this.id} , Attendance: ${this.EmployeeAttendence()} , Wages: ${this.DailyWages()} , wageUsingSwitchCase: ${this.DailyWagesUsingSwitchCase()}`);
+      console.log(`Employee Name: ${this.name}, ID: ${this.id} , Attendance: ${this.EmployeeAttendence()} , Wages: ${this.DailyWages()} , wageUsingSwitchCase: ${this.DailyWagesUsingSwitchCase()} `);
     }
 }
   
@@ -102,5 +123,7 @@ function getRandom() {
 
 const emp1 = new Employee("Priyanshu Kumar", 101);
   emp1.displayInfo();
+  emp1.monthlyWageCalculate()
 const emp2 = new Employee("Mohan Ram ", 102);
   emp2.displayInfo();
+  emp2.monthlyWageCalculate()
