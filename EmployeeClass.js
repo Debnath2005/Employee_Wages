@@ -104,6 +104,35 @@ class Employee {
     //return monthlyWage;
   }
 
+  calculateMonthlyWagesHavingCondition(){
+    let daysInMonth=30;
+    let givenHours=100;
+    let day=0;
+    let hour=0;
+    let monthlyWage=0;
+    for(let i=1;i<=daysInMonth;i++){
+      let dailyAttendence=getRandom()
+      if(day<=20 && hour<=100){
+        if(dailyAttendence==1){
+          hour+=4;
+          day++;
+          monthlyWage+=this.wageHalfTime()
+       }
+       else if(dailyAttendence==2){
+         hour+=8;
+         day++;
+         monthlyWage+=this.wageFullTime()
+       }
+       else{
+         monthlyWage+=this.wageAbsent()
+       }
+      }
+
+    }
+    console.log(`Month wages with given condition is : ${monthlyWage}`);
+    
+  }
+
 
   
 
@@ -124,6 +153,7 @@ function getRandom() {
 const emp1 = new Employee("Priyanshu Kumar", 101);
   emp1.displayInfo();
   emp1.monthlyWageCalculate()
+  emp1.calculateMonthlyWagesHavingCondition()
 const emp2 = new Employee("Mohan Ram ", 102);
   emp2.displayInfo();
-  emp2.monthlyWageCalculate()
+  emp2.calculateMonthlyWagesHavingCondition()
